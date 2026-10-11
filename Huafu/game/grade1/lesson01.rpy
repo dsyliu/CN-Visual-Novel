@@ -26,7 +26,7 @@ label g1_lesson01:
     with dissolve
     $ play_sfx("audio/sfx/sfx_sparkle.ogg")
 
-    narrator "書架上，有一本書在發光。《華府》。\n(On the shelf, a book is glowing: 'Huáfǔ'.)"
+    narrator "書架上，有一本書在發光。《念一念》。\n(On the shelf, a book is glowing: 'Niàn Yi Niàn'.)"
     mc "這是什麼書？\n(What book is this?)"
 
     # 明明 opens the book — out tumbles a squirrel.

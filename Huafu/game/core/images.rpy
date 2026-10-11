@@ -20,5 +20,5 @@ image teacher_ph     = Placeholder("woman", text="老師")
 
 ## Props -----------------------------------------------------------------------
 
-# The glowing magic book 《華府》.
+# The glowing magic book 《念一念》.
 image book = Transform("images/props/book.png", zoom=0.655)   # ~480px tall

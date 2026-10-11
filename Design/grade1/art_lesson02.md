@@ -26,7 +26,8 @@ Fruit file names, in chant order: `fruit_apple` 蘋果, `fruit_banana` 香蕉,
 
 ## 1 — `zhongzhong.png` (中中, calm and clever — lock this design)
 
-Batch B settings (832×1216, transparent). **New seed; keep it** for his later poses.
+Batch B settings (832×1216, transparent). Seed **1083328916370374** (fixed; also in
+`character_bible.md`) — reuse it for his later poses.
 Then copy the final tokens into `character_bible.md` and move him to "approved art".
 
 **POSITIVE** (after the prefix):

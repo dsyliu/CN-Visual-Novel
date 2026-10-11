@@ -29,9 +29,15 @@ testsuite smoke:
 
         advance until "開學了"
         assert "The first day of school"
+        # Dialogue voice (core/voice.rpy) plays with the line.
+        assert eval (renpy.music.get_playing("voice") or "").endswith("g1_lesson01_9a41abed.ogg") timeout 3.0
 
         # L1.1 上山找老虎 — chant, then count the five squirrels.
         advance until screen "chant_screen"
+        # Chant voice (core/chant.rpy) plays line 1.
+        assert eval (renpy.music.get_playing("voice") or "").endswith("l01_1_01.ogg") timeout 3.0
+        click id "chant_advance"
+        assert eval (renpy.music.get_playing("voice") or "").endswith("l01_1_02.ogg") timeout 3.0
         click id "chant_advance" until not screen "chant_screen"
         advance until screen "tap_count_screen"
         click id "tap_0"

@@ -68,9 +68,13 @@ init python:
     # main thread, non-blocking), so by the time play_bgm() actually starts it
     # there's no disk-load hitch — and nothing loads until it's about to be
     # needed (not everything at game start).
+    # The web build can't start threads, so there this does nothing; the
+    # browser fetches the track when play_bgm() asks for it.
     import threading as _threading
 
     def prequeue_bgm(filename):
+        if renpy.emscripten:
+            return
         f = _find_audio(filename)
         if not f:
             return

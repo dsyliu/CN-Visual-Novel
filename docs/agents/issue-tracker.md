@@ -2,7 +2,7 @@
 
 Issues and specs for this repo live as markdown files in `.scratch/`.
 
-There is no git remote for this repo, so `gh` / `glab` workflows do not apply. Everything is local.
+The code is pushed to GitHub (`dsyliu/CN-Visual-Novel`), but issues are **not** tracked in GitHub Issues — do not use `gh issue` / `glab`. Issues stay local.
 
 ## Conventions
 

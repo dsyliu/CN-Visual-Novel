@@ -14,7 +14,7 @@ Ren'Py SDK: `C:\Users\dsyli\Downloads\renpy-8.5.3-sdk\renpy.exe`
 
 ### Issue tracker
 
-Issues and specs live as local markdown files under `.scratch/<feature-slug>/` — there is no git remote, so `gh`/`glab` do not apply. See `docs/agents/issue-tracker.md`.
+Issues and specs live as local markdown files under `.scratch/<feature-slug>/`, not GitHub Issues. The code is on GitHub at `dsyliu/CN-Visual-Novel` (`origin`, branch `main`). See `docs/agents/issue-tracker.md`.
 
 ### Domain docs
 

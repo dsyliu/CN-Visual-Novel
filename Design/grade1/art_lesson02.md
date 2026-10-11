@@ -33,7 +33,7 @@ in a different style from 明明 and 友友 (thick ink lines, hard flat colors).
 
 | # | File | Kind | Size in game | Priority |
 |---|---|---|---|---|
-| 1 | `Huafu/game/images/chars/zhongzhong.png` | sprite (transparent) | ~900px tall | **first** — new character, recurs all year |
+| 1 | `Huafu/game/images/chars/zhongzhong.png` | sprite (transparent) | ~900px tall | **done** (2026-10-11) |
 | 2 | `Huafu/game/images/grade1/bg/bg_classroom.png` | background | 1920×1080 | high — used in L2, L3, L4 |
 | 3 | `Huafu/game/images/grade1/bg/bg_fruit_tree.png` | background | 1920×1080 | high |
 | 4–13 | `Huafu/game/images/grade1/props/fruit_<name>.png` (10 files) | icons (transparent) | 140×140 | high |
@@ -59,7 +59,7 @@ masterpiece, best quality, very aesthetic, absurdres, storybook illustration,
 children's picture book style, soft gouache and watercolor texture,
 soft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,
 1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair
-with a tidy side part, round black glasses, small thoughtful smile, green polo
+with a tidy side part, round thin teal-blue glasses, small thoughtful smile, green polo
 shirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,
 relaxed quiet posture, full body, standing, looking at viewer, simple background,
 white background

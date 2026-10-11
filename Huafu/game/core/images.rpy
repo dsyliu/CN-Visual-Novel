@@ -6,6 +6,15 @@
 # image with the same tag replaces the old one on screen). Shared images use
 # plain names; grade images put the grade in the second word or the name, e.g.
 # "bg g1_gate" or "g1_squirrel_token" — never "g1 ..." as the tag.
+#
+# Art not made yet: use art_or("images/...png", <placeholder>). The placeholder
+# shows until the file is added; then the real art shows, no code change needed.
+
+init -100 python:
+
+    def art_or(path, placeholder):
+        """The image file if it exists, else the placeholder displayable."""
+        return path if renpy.loadable(path) else placeholder
 
 ## Character sprites -----------------------------------------------------------
 
@@ -13,10 +22,14 @@
 image mingming       = Transform("images/chars/mingming.png", zoom=0.781)
 image mingming smile = Transform("images/chars/mingming_smile.png", zoom=0.781)
 image youyou         = Transform("images/chars/youyou.png", zoom=0.765)   # ~900px tall
+# 中中 — art not made yet (see Design/grade1/art_lesson02.md). Scaled to ~900px tall.
+image zhongzhong     = Transform(art_or("images/chars/zhongzhong.png",
+                                        Placeholder("boy", full=True, text="zhongzhong")),
+                                 ysize=900, fit="contain")
 # 小五 the squirrel guide — scaled to ~600px tall (a little guide character).
 image wu squirrel    = Transform("images/chars/wu_squirrel.png", zoom=0.913)
 # 老師 has no art yet.
-image teacher_ph     = Placeholder("woman", text="老師")
+image teacher_ph     = Placeholder("girl", full=True, text="teacher")
 
 ## Props -----------------------------------------------------------------------
 

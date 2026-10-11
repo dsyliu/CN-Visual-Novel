@@ -47,10 +47,13 @@ first approved sprite exists.
 
 ### 中中 Zhongzhong — second friend (calm, clever)
 ```
-a 6-year-old Chinese boy, calm, neat short black hair, green polo shirt,
-khaki shorts, glasses optional
+a 6-year-old Chinese boy, calm gentle face, neat short straight black hair with
+a tidy side part, round black glasses, small thoughtful smile, green polo shirt,
+khaki shorts, white sneakers, holding a small sketchbook
 ```
-Signature color: green (#54a85a). First needed: Lesson 2 (握握手, end) / Lesson 3.
+Signature color: green (#54a85a). First needed: Lesson 2 (end of 握握手); he talks
+from Lesson 3. Full prompt: `Design/grade1/art_lesson02.md`. In-game he is a
+placeholder until `Huafu/game/images/chars/zhongzhong.png` exists.
 
 ### 老師 Teacher — warm guide
 ```

@@ -22,6 +22,8 @@ testsuite smoke:
         description "Start -> 第一冊 -> play Lesson 1 through the reward card (English on)."
 
         run SetField(persistent, "show_english", True)
+        # Main menu plays the theme (via play_bgm, so at the balanced volume).
+        assert eval (renpy.music.get_playing("music") or "").endswith("theme_main.ogg") timeout 3.0
         click "Start"
         pause until screen "grade_select"
         assert eval not renpy.has_label("g2_start")   # Grade 2 card is "coming soon"
@@ -31,6 +33,8 @@ testsuite smoke:
         assert "The first day of school"
         # Dialogue voice (core/voice.rpy) plays with the line.
         assert eval (renpy.music.get_playing("voice") or "").endswith("g1_lesson01_9a41abed.ogg") timeout 3.0
+        # While voice plays, the music dips (core/audio.rpy).
+        assert eval renpy.audio.audio.get_channel("music").context.secondary_volume == config.emphasize_audio_volume timeout 3.0
 
         # L1.1 上山找老虎 — chant, then count the five squirrels.
         advance until screen "chant_screen"

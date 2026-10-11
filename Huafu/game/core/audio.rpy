@@ -39,15 +39,27 @@ init python:
                 return base + ext
         return None
 
+    # ── Music vs. voice balance ───────────────────────────────────────────────
+    # The music files are mastered loud (about 4 dB louder than the voice), so
+    # music always plays at BGM_VOLUME of its file level (0.4 ≈ -8 dB), and is
+    # lowered again to config.emphasize_audio_volume while a voice line plays.
+    # The player's Music Volume slider still applies on top of this.
+    BGM_VOLUME = 0.4
+    config.emphasize_audio_channels = ["voice"]
+    config.emphasize_audio_volume = 0.5    # music/sfx at half while voice plays
+    config.emphasize_audio_time = 0.3      # fade time for that dip
+
     def play_bgm(filename, fadein=1.0, fadeout=0.5):
         """Loop a music track on the 'music' channel — but only if it exists.
         Short fadeout so the previous track ends promptly with the scene change
         (no lingering overlap); short fadein so the new one isn't abrupt.
+        If the same track is already playing, it just keeps playing.
         Safe to call with no file yet."""
         f = _find_audio(filename)
         if f:
-            renpy.music.play(f, channel="music",
-                             loop=True, fadein=fadein, fadeout=fadeout)
+            renpy.music.play(f, channel="music", loop=True, if_changed=True,
+                             fadein=fadein, fadeout=fadeout,
+                             relative_volume=BGM_VOLUME)
 
     def play_sfx(filename):
         """Play a one-shot sound effect on the 'sound' channel, if it exists.
@@ -56,11 +68,6 @@ init python:
         if f:
             renpy.sound.play(f)
 
-    # Use the main theme on the title screen / main menu, only if present
-    # (guarded so a missing file never crashes the menu).
-    _mm = _find_audio("audio/bgm/theme_main.ogg")
-    if _mm:
-        config.main_menu_music = _mm
 
     # ── BGM pre-queue ─────────────────────────────────────────────────────────
     # Call  $ prequeue_bgm("audio/x.ogg")  ONE SCENE BEFORE the scene that plays
@@ -85,3 +92,13 @@ init python:
             except Exception:
                 pass
         _threading.Thread(target=_warm, daemon=True).start()
+
+
+# Main menu: play the theme through play_bgm() so it gets the same balance as
+# all other music (config.main_menu_music would play it at full volume).
+# Also turn on the music dip during voice. The default Preferences screen has no
+# switch for it, so it is set here every time the main menu shows.
+label before_main_menu:
+    $ preferences.emphasize_audio = True
+    $ play_bgm("audio/bgm/theme_main.ogg")
+    return

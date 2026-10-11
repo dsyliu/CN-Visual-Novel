@@ -10,6 +10,25 @@ path and it replaces the placeholder (no code change).
   pose) in `ArtSource/shared/`, backgrounds and fruits in `ArtSource/grade1/`.
   Make the folder if it does not exist yet.
 
+## Every prompt = shared block + the image's own words
+
+**Do not skip this.** Without the prefix and the shared negative, the image comes out
+in a different style from 明明 and 友友 (thick ink lines, hard flat colors).
+
+- **POSITIVE** = this prefix, then the image's POSITIVE below:
+  ```
+  masterpiece, best quality, very aesthetic, absurdres, storybook illustration,
+  children's picture book style, soft gouache and watercolor texture,
+  soft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,
+  ```
+- **NEGATIVE** = this list, then the image's ADD TO NEGATIVE below:
+  ```
+  lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,
+  extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,
+  blurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,
+  scary, horror, grimdark, nsfw, suggestive, monochrome, greyscale
+  ```
+
 ## What to make
 
 | # | File | Kind | Size in game | Priority |
@@ -32,18 +51,31 @@ Batch B settings (832×1216, transparent). Seed **1083328916370374** (fixed; als
 `character_bible.md`) — reuse it for his later poses.
 Then copy the final tokens into `character_bible.md` and move him to "approved art".
 
-**POSITIVE** (after the prefix):
+Full prompts, ready to paste:
+
+**POSITIVE:**
 ```
+masterpiece, best quality, very aesthetic, absurdres, storybook illustration,
+children's picture book style, soft gouache and watercolor texture,
+soft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,
 1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair
 with a tidy side part, round black glasses, small thoughtful smile, green polo
 shirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,
 relaxed quiet posture, full body, standing, looking at viewer, simple background,
 white background
 ```
-**ADD TO NEGATIVE:** `cropped, out of frame, multiple views, messy hair, orange shirt`
+**NEGATIVE:**
+```
+lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,
+extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,
+blurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,
+scary, horror, grimdark, nsfw, suggestive, monochrome, greyscale,
+cropped, out of frame, multiple views, messy hair, orange shirt, logo, emblem
+```
 
 Check: he must not look like 友友 (messy hair, orange shirt) or 明明 (cowlick, blue
-shirt, red backpack). Green shirt + glasses + sketchbook = 中中.
+shirt, red backpack). Green shirt + glasses + sketchbook = 中中. He must match their
+**style** too: soft watercolor color and thin lines, not thick ink outlines.
 
 ---
 

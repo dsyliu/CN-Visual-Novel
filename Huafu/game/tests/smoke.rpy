@@ -25,7 +25,7 @@ testsuite smoke:
         exit
 
     testcase g1_lesson01:
-        description "Start -> 第一冊 -> play Lesson 1 through the reward card (English on)."
+        description "Start -> 第一冊 -> 第一課 -> play Lesson 1 through the reward card (English on)."
 
         run SetField(persistent, "show_english", True)
         # Main menu plays the theme (via play_bgm, so at the balanced volume).
@@ -34,6 +34,9 @@ testsuite smoke:
         pause until screen "grade_select"
         assert eval not renpy.has_label("g2_start")   # Grade 2 card is "coming soon"
         click id "grade_g1"
+        pause until screen "lesson_select"
+        assert eval not renpy.has_label("g1_start_03")   # Lesson 3 card is "coming soon"
+        click id "lesson_01"
 
         advance until "開學了"
         assert "The first day of school"
@@ -66,9 +69,13 @@ testsuite smoke:
         advance until "吃點心"
 
     testcase g1_lesson02:
-        description "Lesson 2: fruit chant, shake the tree, count ten fruits, 握握手 pick game."
+        description "Start at 第二課 from lesson select: fruit chant, shake the tree, count ten fruits, 握握手 pick game."
 
-        run Start("g1_lesson02")
+        click "Start"
+        pause until screen "grade_select"
+        click id "grade_g1"
+        pause until screen "lesson_select"
+        click id "lesson_02"
 
         # L2.1 一棵樹上十樣果 — chant, shake the tree three times, count the fruit.
         advance until screen "chant_screen"
@@ -127,6 +134,8 @@ testsuite smoke:
         click "Start"
         pause until screen "grade_select"
         click id "grade_g1"
+        pause until screen "lesson_select"
+        click id "lesson_01"
 
         advance until "開學了"
         # Test selectors read text before custom tags run, so check the {en} tag itself.

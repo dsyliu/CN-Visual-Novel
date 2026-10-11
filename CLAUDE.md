@@ -8,7 +8,7 @@ Ren'Py SDK: `C:\Users\dsyli\Downloads\renpy-8.5.3-sdk\renpy.exe`
 
 - Play: `renpy.exe <repo>/Huafu`
 - Lint: `renpy.exe <repo>/Huafu lint`
-- Smoke test (plays Grade 1 Lesson 1 end to end): `renpy.exe <repo>/Huafu test smoke`
+- Smoke test (plays each Grade 1 lesson end to end, started from lesson select): `renpy.exe <repo>/Huafu test smoke`
 - Voice (TTS for all dialogue + chant lines; only changed lines): `python tools/gen_voice.py` — run after editing any dialogue or chant text
 - Publish the web version to GitHub Pages: `bash tools/deploy_web.sh` → https://dsyliu.github.io/CN-Visual-Novel/ (players get it within ~10 minutes; browser cache)
 

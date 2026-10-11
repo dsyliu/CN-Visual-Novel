@@ -16,6 +16,10 @@ game per grade.
 - The main menu's Start button opens a grade-select screen (`core/grades.rpy`).
   Each grade is an entry in `GRADES`; its card becomes playable once its
   `gN_start` label exists, and shows 即將推出 (coming soon) until then.
+- A grade card opens a lesson-select screen. The grade lists its lessons in
+  `gN_lessons` (in `gN/main.rpy`); a lesson card starts the game at that lesson
+  (`gN_start_NN`), and play goes on through the later lessons. Lessons are not
+  locked: a teacher can open any built lesson for the class.
 - Code shared by every grade lives in `game/core/` and `game/minigames/`.
   Each grade gets its own folder, `game/gradeN/`.
 - Ren'Py labels, screens, images, and `default` variables are global, so

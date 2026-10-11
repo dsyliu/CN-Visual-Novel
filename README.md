@@ -1,7 +1,7 @@
 # 華府 (Huafu)
 
 A visual novel for learning Traditional Chinese, made for the students of 華府中文學校.
-Each chant from the 美洲華語 textbook becomes a story scene inside the magic book
+Each chant from the class textbook becomes a story scene inside the magic book
 《念一念》: the player reads the chant line by line, hears it spoken, and plays a
 short game with its words.
 
@@ -55,8 +55,5 @@ bash tools/deploy_web.sh      # build the web version and publish it to GitHub P
 - **Art:** made locally in ComfyUI with an SDXL (Illustrious/NoobAI) checkpoint. See
   `Design/shared/comfyui_generation_guide.md`. Art not made yet shows as a placeholder.
 - **Voice:** edge-tts (Microsoft neural voices), made by `tools/gen_voice.py`.
-- **Font:** Noto Sans TC (SIL Open Font License), subset to the characters the game uses.
+- **Font:** Noto Sans TC, subset to the characters the game uses.
 
-## Credits
-
-Chant text from the 美洲華語 (Mei Zhou Hua Yu) textbooks, used for teaching at 華府中文學校.

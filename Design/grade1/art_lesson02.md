@@ -6,7 +6,9 @@ path and it replaces the placeholder (no code change).
 - Settings, positive prefix, negative prompt, upscale, and transparency:
   `Design/shared/comfyui_generation_guide.md` (same as Lesson 1).
 - Character looks: `Design/shared/character_bible.md`.
-- Keep each original and its workflow `.json` in `ArtSource/grade1/`.
+- Keep each original and its workflow `.json` in `ArtSource/`: 中中 (and the 友友
+  pose) in `ArtSource/shared/`, backgrounds and fruits in `ArtSource/grade1/`.
+  Make the folder if it does not exist yet.
 
 ## What to make
 

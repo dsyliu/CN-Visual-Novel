@@ -117,8 +117,13 @@ line comes up (see `docs/adr/0002-english-toggle-and-chant-voice.md`).
 
 ## Volume balancing
 
-SFX often come louder than music. If needed, per-sound volume can be set in
-`core/audio.rpy` (e.g. `renpy.sound.play(f, volume=0.6)`). Tell me which are too loud.
+Voice must always be clear over the music. `core/audio.rpy` does this in two ways:
+- **All music plays at `BGM_VOLUME`** (0.4 ≈ -8 dB) of its file level. Suno tracks
+  are mastered loud (mean about -16 dB; voice lines are about -20 dB).
+- **Music dips while a voice line plays** (`config.emphasize_audio_volume`, 0.5).
+
+If music is still too loud or too quiet, change `BGM_VOLUME`. New music files do not
+need to be made quieter by hand. SFX can be set per sound in `play_sfx` if needed.
 
 ---
 

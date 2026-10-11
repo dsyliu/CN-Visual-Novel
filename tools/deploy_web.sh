@@ -23,6 +23,9 @@ OUT_WIN="$(cygpath -m "$OUT" 2>/dev/null || echo "$OUT")"   # Ren'Py needs a Win
 
 echo "== Subsetting fonts"
 python "$ROOT/tools/subset_fonts.py"
+if ! git -C "$ROOT" diff --quiet -- Huafu/game/fonts; then
+    echo "NOTE: the fonts changed (new characters in the scripts). Commit Huafu/game/fonts in a PR."
+fi
 
 echo "== Making the loading picture"
 python "$ROOT/tools/make_presplash.py"

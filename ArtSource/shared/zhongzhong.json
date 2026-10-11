@@ -1,0 +1,1092 @@
+{
+  "id": "88bcf757-1298-432f-885a-db5ab88cf224",
+  "revision": 0,
+  "last_node_id": 63,
+  "last_link_id": 80,
+  "nodes": [
+    {
+      "id": 42,
+      "type": "Note",
+      "pos": [
+        -75.59688568115234,
+        -421.0376281738281
+      ],
+      "size": [
+        260,
+        210
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note - Empty Latent Image",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "This node sets the image's resolution in Width and Height.\n\nNOTE: For SDXL, it is recommended to use trained values listed below:\n - 1024 x 1024\n - 1152 x 896\n - 896  x 1152\n - 1216 x 832\n - 832  x 1216\n - 1344 x 768\n - 768  x 1344\n - 1536 x 640\n - 640  x 1536"
+      ],
+      "widgets_values_named": {
+        "text": "This node sets the image's resolution in Width and Height.\n\nNOTE: For SDXL, it is recommended to use trained values listed below:\n - 1024 x 1024\n - 1152 x 896\n - 896  x 1152\n - 1216 x 832\n - 832  x 1216\n - 1344 x 768\n - 768  x 1344\n - 1536 x 640\n - 640  x 1536"
+      },
+      "color": "#323",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 48,
+      "type": "Note",
+      "pos": [
+        295.3782043457031,
+        -303.24786376953125
+      ],
+      "size": [
+        213.91000366210938,
+        110.16999816894531
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "These can be used to control the total sampling steps and the step at which the sampling switches to the refiner."
+      ],
+      "widgets_values_named": {
+        "text": "These can be used to control the total sampling steps and the step at which the sampling switches to the refiner."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 41,
+      "type": "Note",
+      "pos": [
+        1205.9174841561307,
+        31.117848858755757
+      ],
+      "size": [
+        312.02081298828125,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note - VAE Decoder",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "This node will take the latent data from the KSampler and, using the VAE, it will decode it into visible data\n\nVAE = Latent --> Visible\n\nThis can then be sent to the Save Image node to be saved as a PNG."
+      ],
+      "widgets_values_named": {
+        "text": "This node will take the latent data from the KSampler and, using the VAE, it will decode it into visible data\n\nVAE = Latent --> Visible\n\nThis can then be sent to the Save Image node to be saved as a PNG."
+      },
+      "color": "#332922",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 39,
+      "type": "Note",
+      "pos": [
+        311.707763671875,
+        311.12799072265625
+      ],
+      "size": [
+        390.1957702636719,
+        149.67234802246094
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note - CLIP Encode (BASE)",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "These nodes receive the text from the prompt and use the optimal CLIP settings for the specified checkpoint model (in this case: SDXL Base)"
+      ],
+      "widgets_values_named": {
+        "text": "These nodes receive the text from the prompt and use the optimal CLIP settings for the specified checkpoint model (in this case: SDXL Base)"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -90,
+        -50
+      ],
+      "size": [
+        350,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            50
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            54
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "Load Checkpoint - BASE",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "models": [
+          {
+            "name": "sd_xl_base_1.0.safetensors",
+            "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true",
+            "directory": "checkpoints"
+          }
+        ]
+      },
+      "widgets_values": [
+        "illustriousXL_v01.safetensors"
+      ],
+      "widgets_values_named": {
+        "ckpt_name": "illustriousXL_v01.safetensors"
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        301.707763671875,
+        -48.872215270996094
+      ],
+      "size": [
+        405.0923156738281,
+        124.19273376464844
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 53
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33"
+      },
+      "widgets_values": [
+        "masterpiece, best quality, very aesthetic, absurdres, storybook illustration,\nchildren's picture book style, soft gouache and watercolor texture,\nsoft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,\n1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair\nwith a tidy side part, round black glasses, small thoughtful smile, green polo\nshirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,\nrelaxed quiet posture, full body, standing, looking at viewer, simple background,\nwhite background"
+      ],
+      "widgets_values_named": {
+        "text": "masterpiece, best quality, very aesthetic, absurdres, storybook illustration,\nchildren's picture book style, soft gouache and watercolor texture,\nsoft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,\n1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair\nwith a tidy side part, round black glasses, small thoughtful smile, green polo\nshirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,\nrelaxed quiet posture, full body, standing, looking at viewer, simple background,\nwhite background"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        311.707763671875,
+        121.12776947021484
+      ],
+      "size": [
+        397.553466796875,
+        142.57814025878906
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 55
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33"
+      },
+      "widgets_values": [
+        "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,\nextra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,\nblurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,\nscary, horror, grimdark, nsfw, suggestive, monochrome, greyscale,\ncropped, out of frame, multiple views, messy hair, orange shirt, logo, emblem"
+      ],
+      "widgets_values_named": {
+        "text": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,\nextra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,\nblurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,\nscary, horror, grimdark, nsfw, suggestive, monochrome, greyscale,\ncropped, out of frame, multiple views, messy hair, orange shirt, logo, emblem"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 45,
+      "type": "PrimitiveNode",
+      "pos": [
+        295.5135192871094,
+        -570.4500122070312
+      ],
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "links": [
+            41
+          ]
+        }
+      ],
+      "title": "steps",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        28,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "value": 28,
+        "control_after_generate": "fixed"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 53,
+      "type": "LoraLoader",
+      "pos": [
+        -70.19357149046103,
+        117.06894095010472
+      ],
+      "size": [
+        290.4380859375,
+        126
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 50
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            71
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            53,
+            55
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "StoryBookRedmond-KidsRedmAF.safetensors",
+        0.7,
+        0.7
+      ],
+      "widgets_values_named": {
+        "lora_name": "StoryBookRedmond-KidsRedmAF.safetensors",
+        "strength_model": 0.7,
+        "strength_clip": 0.7
+      }
+    },
+    {
+      "id": 54,
+      "type": "VAELoader",
+      "pos": [
+        807.2927549674681,
+        364.64757642957954
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "sdxl_vae.safetensors"
+      }
+    },
+    {
+      "id": 47,
+      "type": "PrimitiveNode",
+      "pos": [
+        296.2197570800781,
+        -439.43743896484375
+      ],
+      "size": [
+        210,
+        82
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "widget": {
+            "name": "end_at_step"
+          },
+          "slot_index": 0,
+          "links": [
+            43
+          ]
+        }
+      ],
+      "title": "end_at_step",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        28,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "value": 28,
+        "control_after_generate": "fixed"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "Note",
+      "pos": [
+        738.3018959649204,
+        -691.1789861101192
+      ],
+      "size": [
+        451.5,
+        424.4200134277344
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note - KSampler  ADVANCED General Information",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Here are the settings that SHOULD stay in place if you want this workflow to work correctly:\n - add_noise: enable = This adds random noise into the picture so the model can denoise it\n\n - return_with_leftover_noise: enable = This sends the latent image data and all it's leftover noise to the next KSampler node.\n\nThe settings to pay attention to:\n - control_after_generate = generates a new random seed after each workflow job completed.\n - steps = This is the amount of iterations you would like to run the positive and negative CLIP prompts through. Each Step will add (positive) or remove (negative) pixels based on what stable diffusion \"thinks\" should be there according to the model's training\n - cfg = This is how much you want SDXL to adhere to the prompt. Lower CFG gives you more creative but often blurrier results. Higher CFG (recommended max 10) gives you stricter results according to the CLIP prompt. If the CFG value is too high, it can also result in \"burn-in\" where the edges of the picture become even stronger, often highlighting details in unnatural ways.\n - sampler_name = This is the sampler type, and unfortunately different samplers and schedulers have better results with fewer steps, while others have better success with higher steps. This will require experimentation on your part!\n - scheduler = The algorithm/method used to choose the timesteps to denoise the picture.\n - start_at_step = This is the step number the KSampler will start out it's process of de-noising the picture or \"removing the random noise to reveal the picture within\". The first KSampler usually starts with Step 0. Starting at step 0 is the same as setting denoise to 1.0 in the regular Sampler node.\n - end_at_step = This is the step number the KSampler will stop it's process of de-noising the picture. If there is any remaining leftover noise and return_with_leftover_noise is enabled, then it will pass on the left over noise to the next KSampler (assuming there is another one)."
+      ],
+      "widgets_values_named": {
+        "text": "Here are the settings that SHOULD stay in place if you want this workflow to work correctly:\n - add_noise: enable = This adds random noise into the picture so the model can denoise it\n\n - return_with_leftover_noise: enable = This sends the latent image data and all it's leftover noise to the next KSampler node.\n\nThe settings to pay attention to:\n - control_after_generate = generates a new random seed after each workflow job completed.\n - steps = This is the amount of iterations you would like to run the positive and negative CLIP prompts through. Each Step will add (positive) or remove (negative) pixels based on what stable diffusion \"thinks\" should be there according to the model's training\n - cfg = This is how much you want SDXL to adhere to the prompt. Lower CFG gives you more creative but often blurrier results. Higher CFG (recommended max 10) gives you stricter results according to the CLIP prompt. If the CFG value is too high, it can also result in \"burn-in\" where the edges of the picture become even stronger, often highlighting details in unnatural ways.\n - sampler_name = This is the sampler type, and unfortunately different samplers and schedulers have better results with fewer steps, while others have better success with higher steps. This will require experimentation on your part!\n - scheduler = The algorithm/method used to choose the timesteps to denoise the picture.\n - start_at_step = This is the step number the KSampler will start out it's process of de-noising the picture or \"removing the random noise to reveal the picture within\". The first KSampler usually starts with Step 0. Starting at step 0 is the same as setting denoise to 1.0 in the regular Sampler node.\n - end_at_step = This is the step number the KSampler will stop it's process of de-noising the picture. If there is any remaining leftover noise and return_with_leftover_noise is enabled, then it will pass on the left over noise to the next KSampler (assuming there is another one)."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 17,
+      "type": "VAEDecode",
+      "pos": [
+        1207.5290564217557,
+        -69.037607684213
+      ],
+      "size": [
+        200,
+        50
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 62
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            79
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33"
+      },
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 63,
+      "type": "RMBG",
+      "pos": [
+        1231.9436746506155,
+        313.69915036844725
+      ],
+      "size": [
+        291.8873046875,
+        292
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            80
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RMBG"
+      },
+      "widgets_values": [
+        "RMBG-2.0",
+        1,
+        1024,
+        0,
+        0,
+        false,
+        false,
+        "Alpha",
+        "#222222"
+      ],
+      "widgets_values_named": {
+        "model": "RMBG-2.0",
+        "sensitivity": 1,
+        "process_res": 1024,
+        "mask_blur": 0,
+        "mask_offset": 0,
+        "invert_output": false,
+        "refine_foreground": false,
+        "background": "Alpha",
+        "background_color": "#222222"
+      },
+      "color": "#222e40",
+      "bgcolor": "#364254"
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -95.59717559814453,
+        -571.0374755859375
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33"
+      },
+      "widgets_values": [
+        832,
+        1216,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 832,
+        "height": 1216,
+        "batch_size": 1
+      },
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 10,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        808.7730102539062,
+        -57.895355224609375
+      ],
+      "size": [
+        300,
+        334
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 71
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 12
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 27
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 41
+        },
+        {
+          "name": "end_at_step",
+          "type": "INT",
+          "widget": {
+            "name": "end_at_step"
+          },
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            62
+          ]
+        }
+      ],
+      "title": "KSampler (Advanced) - BASE",
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33"
+      },
+      "widgets_values": [
+        "enable",
+        1083328916370374,
+        "fixed",
+        28,
+        5,
+        "euler_ancestral",
+        "normal",
+        0,
+        28,
+        "disable"
+      ],
+      "widgets_values_named": {
+        "add_noise": "enable",
+        "noise_seed": 1083328916370374,
+        "control_after_generate": "fixed",
+        "steps": 28,
+        "cfg": 5,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "normal",
+        "start_at_step": 0,
+        "end_at_step": 28,
+        "return_with_leftover_noise": "disable"
+      }
+    },
+    {
+      "id": 19,
+      "type": "SaveImage",
+      "pos": [
+        1649.4409063776272,
+        -125.83907172926699
+      ],
+      "size": [
+        565.77001953125,
+        596.3800048828125
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33"
+      },
+      "widgets_values": [
+        "zhongzhong.png"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "zhongzhong.png"
+      }
+    },
+    {
+      "id": 50,
+      "type": "PrimitiveNode",
+      "pos": [
+        -453.9333359084443,
+        191.12074759629047
+      ],
+      "size": [
+        304.55610243905676,
+        242.5182418689335
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 0,
+          "links": [
+            46
+          ]
+        }
+      ],
+      "title": "Negative Prompt (Text)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,\nextra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,\nblurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,\nscary, horror, grimdark, nsfw, suggestive, monochrome, greyscale,\ncropped, out of frame, multiple views, messy hair, orange shirt, logo, emblem"
+      ],
+      "widgets_values_named": {
+        "value": "lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,\nextra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,\nblurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,\nscary, horror, grimdark, nsfw, suggestive, monochrome, greyscale,\ncropped, out of frame, multiple views, messy hair, orange shirt, logo, emblem"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 51,
+      "type": "PrimitiveNode",
+      "pos": [
+        -453.93330068375275,
+        -94.43466233595065
+      ],
+      "size": [
+        303.54360391954094,
+        237.9619985311126
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 0,
+          "links": [
+            45
+          ]
+        }
+      ],
+      "title": "Positive Prompt (Text)",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "masterpiece, best quality, very aesthetic, absurdres, storybook illustration,\nchildren's picture book style, soft gouache and watercolor texture,\nsoft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,\n1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair\nwith a tidy side part, round black glasses, small thoughtful smile, green polo\nshirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,\nrelaxed quiet posture, full body, standing, looking at viewer, simple background,\nwhite background"
+      ],
+      "widgets_values_named": {
+        "value": "masterpiece, best quality, very aesthetic, absurdres, storybook illustration,\nchildren's picture book style, soft gouache and watercolor texture,\nsoft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,\n1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair\nwith a tidy side part, round black glasses, small thoughtful smile, green polo\nshirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,\nrelaxed quiet posture, full body, standing, looking at viewer, simple background,\nwhite background"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      11,
+      6,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      7,
+      0,
+      10,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      27,
+      5,
+      0,
+      10,
+      3,
+      "LATENT"
+    ],
+    [
+      41,
+      45,
+      0,
+      10,
+      4,
+      "INT"
+    ],
+    [
+      43,
+      47,
+      0,
+      10,
+      5,
+      "INT"
+    ],
+    [
+      45,
+      51,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      46,
+      50,
+      0,
+      7,
+      1,
+      "STRING"
+    ],
+    [
+      50,
+      4,
+      0,
+      53,
+      0,
+      "MODEL"
+    ],
+    [
+      53,
+      53,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      54,
+      4,
+      1,
+      53,
+      1,
+      "CLIP"
+    ],
+    [
+      55,
+      53,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      56,
+      54,
+      0,
+      17,
+      1,
+      "VAE"
+    ],
+    [
+      62,
+      10,
+      0,
+      17,
+      0,
+      "LATENT"
+    ],
+    [
+      71,
+      53,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      79,
+      17,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      63,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Base Prompt",
+      "bounding": [
+        281.707763671875,
+        -128.8721160888672,
+        439.7534484863281,
+        600.5301513671875
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Load in BASE SDXL Model",
+      "bounding": [
+        -100,
+        -130,
+        359.4917907714844,
+        403.9964904785156
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Empty Latent Image",
+      "bounding": [
+        -115.09705352783203,
+        -652.1575317382812,
+        353.29144287109375,
+        461.8235168457031
+      ],
+      "color": "#a1309b",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "VAE Decoder",
+      "bounding": [
+        1175.7714880623807,
+        -147.13233424671287,
+        358.535400390625,
+        332.57080078125
+      ],
+      "color": "#b06634",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Step Control",
+      "bounding": [
+        266.23602294921875,
+        -652.185302734375,
+        274.54791259765625,
+        472.66363525390625
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 10,
+      "title": "Text Prompts",
+      "bounding": [
+        -471.7359313964844,
+        -166.89599609375,
+        339,
+        622
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 11,
+      "title": "Base",
+      "bounding": [
+        -110,
+        -173.60000610351562,
+        1228.77294921875,
+        655.2579956054688
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8891685063609339,
+      "offset": [
+        820.2187375061692,
+        714.0953612512861
+      ]
+    },
+    "frontendVersion": "1.55.14"
+  },
+  "version": 0.4
+}

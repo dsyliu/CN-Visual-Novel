@@ -6,13 +6,34 @@ path and it replaces the placeholder (no code change).
 - Settings, positive prefix, negative prompt, upscale, and transparency:
   `Design/shared/comfyui_generation_guide.md` (same as Lesson 1).
 - Character looks: `Design/shared/character_bible.md`.
-- Keep each original and its workflow `.json` in `ArtSource/grade1/`.
+- Keep each original and its workflow `.json` in `ArtSource/`: 中中 (and the 友友
+  pose) in `ArtSource/shared/`, backgrounds and fruits in `ArtSource/grade1/`.
+  Make the folder if it does not exist yet.
+
+## Every prompt = shared block + the image's own words
+
+**Do not skip this.** Without the prefix and the shared negative, the image comes out
+in a different style from 明明 and 友友 (thick ink lines, hard flat colors).
+
+- **POSITIVE** = this prefix, then the image's POSITIVE below:
+  ```
+  masterpiece, best quality, very aesthetic, absurdres, storybook illustration,
+  children's picture book style, soft gouache and watercolor texture,
+  soft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,
+  ```
+- **NEGATIVE** = this list, then the image's ADD TO NEGATIVE below:
+  ```
+  lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,
+  extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,
+  blurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,
+  scary, horror, grimdark, nsfw, suggestive, monochrome, greyscale
+  ```
 
 ## What to make
 
 | # | File | Kind | Size in game | Priority |
 |---|---|---|---|---|
-| 1 | `Huafu/game/images/chars/zhongzhong.png` | sprite (transparent) | ~900px tall | **first** — new character, recurs all year |
+| 1 | `Huafu/game/images/chars/zhongzhong.png` | sprite (transparent) | ~900px tall | **done** (2026-10-11) |
 | 2 | `Huafu/game/images/grade1/bg/bg_classroom.png` | background | 1920×1080 | high — used in L2, L3, L4 |
 | 3 | `Huafu/game/images/grade1/bg/bg_fruit_tree.png` | background | 1920×1080 | high |
 | 4–13 | `Huafu/game/images/grade1/props/fruit_<name>.png` (10 files) | icons (transparent) | 140×140 | high |
@@ -26,21 +47,35 @@ Fruit file names, in chant order: `fruit_apple` 蘋果, `fruit_banana` 香蕉,
 
 ## 1 — `zhongzhong.png` (中中, calm and clever — lock this design)
 
-Batch B settings (832×1216, transparent). **New seed; keep it** for his later poses.
+Batch B settings (832×1216, transparent). Seed **1083328916370374** (fixed; also in
+`character_bible.md`) — reuse it for his later poses.
 Then copy the final tokens into `character_bible.md` and move him to "approved art".
 
-**POSITIVE** (after the prefix):
+Full prompts, ready to paste:
+
+**POSITIVE:**
 ```
+masterpiece, best quality, very aesthetic, absurdres, storybook illustration,
+children's picture book style, soft gouache and watercolor texture,
+soft cel shading, warm pastel palette, gentle soft lighting, clean rounded shapes,
 1boy, solo, child, 6 years old, calm gentle face, neat short straight black hair
-with a tidy side part, round black glasses, small thoughtful smile, green polo
+with a tidy side part, round thin teal-blue glasses, small thoughtful smile, green polo
 shirt, khaki shorts, white sneakers, hands holding a small sketchbook in front,
 relaxed quiet posture, full body, standing, looking at viewer, simple background,
 white background
 ```
-**ADD TO NEGATIVE:** `cropped, out of frame, multiple views, messy hair, orange shirt`
+**NEGATIVE:**
+```
+lowres, worst quality, low quality, bad anatomy, bad hands, missing fingers,
+extra digits, fewer digits, jpeg artifacts, signature, watermark, username, text,
+blurry, ugly, deformed, mutated, photorealistic, 3d, realistic, harsh shadows,
+scary, horror, grimdark, nsfw, suggestive, monochrome, greyscale,
+cropped, out of frame, multiple views, messy hair, orange shirt, logo, emblem
+```
 
 Check: he must not look like 友友 (messy hair, orange shirt) or 明明 (cowlick, blue
-shirt, red backpack). Green shirt + glasses + sketchbook = 中中.
+shirt, red backpack). Green shirt + glasses + sketchbook = 中中. He must match their
+**style** too: soft watercolor color and thin lines, not thick ink outlines.
 
 ---
 

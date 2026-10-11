@@ -22,10 +22,7 @@ init -100 python:
 image mingming       = Transform("images/chars/mingming.png", zoom=0.781)
 image mingming smile = Transform("images/chars/mingming_smile.png", zoom=0.781)
 image youyou         = Transform("images/chars/youyou.png", zoom=0.765)   # ~900px tall
-# 中中 — art not made yet (see Design/grade1/art_lesson02.md). Scaled to ~900px tall.
-image zhongzhong     = Transform(art_or("images/chars/zhongzhong.png",
-                                        Placeholder("boy", full=True, text="zhongzhong")),
-                                 ysize=900, fit="contain")
+image zhongzhong     = Transform("images/chars/zhongzhong.png", zoom=0.826)   # ~900px tall
 # 小五 the squirrel guide — scaled to ~600px tall (a little guide character).
 image wu squirrel    = Transform("images/chars/wu_squirrel.png", zoom=0.913)
 # 老師 has no art yet.

@@ -10,6 +10,10 @@
 #                    "上山找老虎：數一數松鼠！",
 #                    hint="Tap each squirrel and count: 一 二 三 四 五",
 #                    done_text="太棒了！松鼠有五隻！ ✓")
+#
+# `hint` is English helper text: it shows only while Preferences → 英文 English is on.
+# Layout: the title and the big count number fill the top of the screen down to
+# about y=0.35. Keep each token's centre at y ≥ 0.45 so tokens are not covered.
 
 default tap_found = []   # token indices, in the order the player tapped them
 
@@ -34,7 +38,7 @@ screen tap_count_screen(bg, token, positions, title, hint="", done_text="", hold
         ypos 0.05
         spacing 6
         text title size 50 color "#27431f" xalign 0.5
-        if hint:
+        if hint and persistent.show_english:
             text hint size 26 color "#3a5a30" xalign 0.5
 
     # Big running total in the centre-top.

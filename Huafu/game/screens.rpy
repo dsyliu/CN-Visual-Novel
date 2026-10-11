@@ -760,6 +760,12 @@ screen preferences():
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
 
+                ## English helper text on/off (core/english.rpy).
+                vbox:
+                    style_prefix "check"
+                    label _("英文 English")
+                    textbutton _("Show English") action ToggleField(persistent, "show_english")
+
             null height (4 * gui.pref_spacing)
 
             hbox:

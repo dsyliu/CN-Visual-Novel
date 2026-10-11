@@ -41,10 +41,11 @@ screen grade_select():
                         text g["title"]:
                             size 80 xalign 0.5
                             color ("#c0392b" if ready else "#8a8478")
-                        text g["subtitle"]:
-                            size 32 xalign 0.5
-                            color ("#6a5a3a" if ready else "#8a8478")
+                        if persistent.show_english:
+                            text g["subtitle"]:
+                                size 32 xalign 0.5
+                                color ("#6a5a3a" if ready else "#8a8478")
                         if not ready:
-                            text "即將推出\n(coming soon)":
+                            text "即將推出{en}\n(coming soon){/en}":
                                 size 28 xalign 0.5 text_align 0.5
                                 color "#8a8478"

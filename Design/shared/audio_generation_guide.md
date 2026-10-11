@@ -92,6 +92,27 @@ a small seam may be audible on restart (usually fine for ambient BGM). To make a
 clean loop: open in **Audacity** (free), find a musical phrase boundary, trim
 start/end to matching points, export. Ask and I'll give exact Audacity steps.
 
+**Store audio as .ogg.** MP3 adds a short silence at the start and end of each
+file, which shows as a gap on every loop; .ogg does not. Convert downloads with:
+```
+ffmpeg -i in.mp3 -c:a libvorbis -q:a 5 out.ogg
+```
+(No system ffmpeg? `pip install imageio-ffmpeg` bundles one.)
+
+---
+
+## Chant voice
+
+Each chant line can have its own voice file; the chant reader plays it when the
+line comes up (see `docs/adr/0002-english-toggle-and-chant-voice.md`).
+
+- Folder: `Huafu/game/audio/gradeN/voice/`
+- Name: `lLL_C_NN.ogg` — lesson LL, chant C, line NN.
+  Example: Grade 1, Lesson 1, chant 1 (上山找老虎), line 1 → `l01_1_01.ogg`.
+- One line per file, in Mandarin, slow and clear for Grade-1 listeners, with a
+  little silence trimmed from the ends. Use the same voice for every chant.
+- Missing files are skipped, so add them in any order.
+
 ---
 
 ## Volume balancing
@@ -102,6 +123,6 @@ SFX often come louder than music. If needed, per-sound volume can be set in
 ---
 
 ## Quick test
-Generate **`theme_main`** first, drop the MP3 in `Huafu/game/audio/bgm/`, relaunch → it
+Generate **`theme_main`** first, convert it to .ogg, drop it in `Huafu/game/audio/bgm/`, relaunch → it
 should play on the title screen. If that works, the whole pipeline works; add the
 rest at your own pace.

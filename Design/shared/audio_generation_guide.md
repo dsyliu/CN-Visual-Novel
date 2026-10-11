@@ -62,7 +62,7 @@ Suno makes songs, not short blips. Grab one-shot effects from:
 - **Kenney.nl** (free game SFX packs — ideal for UI/tap/success)
 - **Pixabay** (sound effects), **Freesound.org** (filter to CC0), **Mixkit**
 
-### The 5 effects (base names + what to search)
+### The effects (base names + what to search)
 | Base name | Plays when | Search terms |
 |---|---|---|
 | `sfx_tap` | tapping a squirrel | "pop", "bubble", "soft click", "blip" |
@@ -70,6 +70,8 @@ Suno makes songs, not short blips. Grab one-shot effects from:
 | `sfx_page` | advancing a chant line | "page turn", "paper flip" |
 | `sfx_sparkle` | the magic book appears | "sparkle", "magic shimmer", "twinkle" |
 | `sfx_star` | lesson-complete stars | "reward", "star ding", "level complete" |
+| `sfx_rustle` | shaking the fruit tree (Grade 1 L2) | "leaves rustle", "bush shake" |
+| `sfx_try_again` | a wrong pick in a pick-one game | "soft boop", "gentle wrong" (soft, not harsh) |
 
 Keep them short (well under 1s for tap; 1–2s for chimes). `.ogg` or `.wav` both fine.
 

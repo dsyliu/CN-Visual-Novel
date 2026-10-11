@@ -51,9 +51,10 @@ The "book worlds" carry the lessons. 小五 threads the two together.
 | Mom / Dad | 媽媽 / 爸爸 | Home warmth | Appear in the family interlude (L6) |
 
 **Writing rule:** the connective dialogue ("glue") between chants must reuse
-**only Grade-1 vocabulary** (words from the chants themselves) plus names. English
-glosses are for the designer, not shown to the player. This keeps the whole game
-readable by an actual Grade-1 student.
+**only Grade-1 vocabulary** (words from the chants themselves) plus names. This
+keeps the whole game readable by an actual Grade-1 student. English glosses show
+under the Chinese, and the player can hide them (Preferences → 英文 English;
+see `docs/adr/0002-english-toggle-and-chant-voice.md`).
 
 ---
 
@@ -186,6 +187,8 @@ lines up and he's swept away. 明明 reaches out a beat too late.
 杏子、木瓜、李子、梨。
 ```
 `[INTERACTIVE]` **Shake the tree**; ten fruits fall — tap & name each, counting 六→十.
+*(Built: tap the tree three times, then the `tap_count` game with ten fruits; each
+fruit says its name when tapped.)*
 
 **◀ CUT-OUT** — 小五 stuffs its cheeks. 明明 catches one last 蘋果… and back in
 class, it's real, in his hand. A shadow falls over his desk —
@@ -206,6 +209,8 @@ class, it's real, in his hand. A shadow falls over his desk —
 ```
 `[INTERACTIVE]` Follow the actions on beat — **握手 / 點頭 / 走** — tapping in time.
 On "握握手," 明明 and 友友 shake hands. **(First friend — half won.)**
+*(Built as the `pick_one` game: pick the words that finish each line; the right
+answer replays that chant line. They swap snacks first — 香蕉 for 蘋果.)*
 
 **◀ CUT-OUT** — 友友 spots the squirrel peeking from the book. *"哇! 你的書會動!"*
 He's delighted, not scared. A calmer boy at the next desk looks over, curious — **中中**.

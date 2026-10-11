@@ -1,5 +1,8 @@
 # ComfyUI Generation Guide — Lesson 1 (SDXL)
 
+> Settings and shared prompt blocks here apply to every lesson. Lesson 2's art list
+> and prompts: `Design/grade1/art_lesson02.md`.
+
 Generate in two batches because they use two different workflows:
 - **Batch A — Backgrounds** (4 images, opaque, 16:9)
 - **Batch B — Sprites & props** (6 images, transparent PNG)

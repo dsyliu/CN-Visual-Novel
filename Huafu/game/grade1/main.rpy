@@ -14,8 +14,11 @@ label g1_start:
     # Act 1, Lesson 1 (also contains the game's opening cutscene).
     call g1_lesson01
 
+    # Lesson 2: fruit tree + first friend (友友).
+    call g1_lesson02
+
     # More lessons will be chained here as they're built:
-    # call g1_lesson02
+    # call g1_lesson03
     # ...
 
     return

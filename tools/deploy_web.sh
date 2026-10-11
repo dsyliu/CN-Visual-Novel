@@ -3,7 +3,7 @@
 #
 #   https://dsyliu.github.io/CN-Visual-Novel/
 #
-# Steps: subset fonts -> Ren'Py web build -> push the build to the `gh-pages`
+# Steps: subset fonts -> loading picture -> Ren'Py web build -> push the build to the `gh-pages`
 # branch (replacing what was there; that branch only holds build output) ->
 # make sure GitHub Pages serves that branch.
 #
@@ -23,6 +23,9 @@ OUT_WIN="$(cygpath -m "$OUT" 2>/dev/null || echo "$OUT")"   # Ren'Py needs a Win
 
 echo "== Subsetting fonts"
 python "$ROOT/tools/subset_fonts.py"
+
+echo "== Making the loading picture"
+python "$ROOT/tools/make_presplash.py"
 
 echo "== Building web version into $OUT"
 "$RENPY" "$SDK/launcher" web_build "$ROOT/Huafu" --destination "$OUT_WIN" | tr '\r' '\n' | grep -v "of [0-9]*$" || true

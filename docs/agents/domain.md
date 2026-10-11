@@ -13,7 +13,7 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 
 ## Existing design docs
 
-This project also carries hand-written design documentation under `Design/`: `Design/shared/` (art/audio generation guides used by every grade) and `Design/gradeN/` (that grade's story bible and per-lesson art prompts). The source textbook text is in `References/gradeN_text.txt`. Read the relevant one before working on story, art, or audio generation. These are *not* a substitute for `CONTEXT.md`: the story bible is narrative canon, `CONTEXT.md` is the glossary and domain model.
+This project also carries hand-written design documentation under `Design/`: `Design/shared/` (character design bible + art/audio generation guides, used by every grade) and `Design/gradeN/` (that grade's story bible). The source textbook text is in `References/gradeN_text.txt`. Read the relevant one before working on story, art, or audio generation. These are *not* a substitute for `CONTEXT.md`: the story bible is narrative canon, `CONTEXT.md` is the glossary and domain model.
 
 ## File structure
 

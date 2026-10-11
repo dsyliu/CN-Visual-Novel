@@ -6,6 +6,9 @@ Generate in two batches because they use two different workflows:
 
 Work top-to-bottom within each batch.
 
+> Character looks (appearance tokens, signature colors, designs for 中中 and 老師)
+> are in `character_bible.md`. Keep sprite prompts consistent with it.
+
 ---
 
 ## GLOBAL SETTINGS (same for every image unless noted)

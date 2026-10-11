@@ -1,9 +1,11 @@
 # Audio Generation Guide — Music & SFX
 
 How to produce the game's audio and where it goes. Music = **Suno** (online);
-SFX = free CC0 libraries. All files drop into `Grade1/game/audio/`.
+SFX = free CC0 libraries. Music drops into `Huafu/game/audio/bgm/`, sound effects into
+`Huafu/game/audio/sfx/`. Audio for one grade only (e.g. chant narration) goes in
+`Huafu/game/audio/gradeN/`.
 
-> The in-game loader (`audio.rpy`) accepts **.ogg / .mp3 / .wav / .opus / .flac**
+> The in-game loader (`core/audio.rpy`) accepts **.ogg / .mp3 / .wav / .opus / .flac**
 > and only plays a track if the file exists — so add them in any order, any of
 > those formats, named by the **base names** below (extension doesn't matter).
 
@@ -16,7 +18,7 @@ SFX = free CC0 libraries. All files drop into `Grade1/game/audio/`.
 2. **Toggle "Instrumental" ON** ← critical (no vocals under dialogue).
 3. Paste a prompt below into the **Style** box; leave the lyrics box empty.
 4. Generate → pick the better of the 2 takes → **Download → MP3**.
-5. Rename to the base name and drop into `Grade1/game/audio/`.
+5. Rename to the base name and drop into `Huafu/game/audio/bgm/`.
 
 ### The 4 tracks
 
@@ -95,11 +97,11 @@ start/end to matching points, export. Ask and I'll give exact Audacity steps.
 ## Volume balancing
 
 SFX often come louder than music. If needed, per-sound volume can be set in
-`audio.rpy` (e.g. `renpy.sound.play(f, volume=0.6)`). Tell me which are too loud.
+`core/audio.rpy` (e.g. `renpy.sound.play(f, volume=0.6)`). Tell me which are too loud.
 
 ---
 
 ## Quick test
-Generate **`theme_main`** first, drop the MP3 in `game/audio/`, relaunch → it
+Generate **`theme_main`** first, drop the MP3 in `Huafu/game/audio/bgm/`, relaunch → it
 should play on the title screen. If that works, the whole pipeline works; add the
 rest at your own pace.

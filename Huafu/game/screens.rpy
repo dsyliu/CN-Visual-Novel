@@ -299,7 +299,8 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            ## Opens the grade-select screen (core/grades.rpy).
+            textbutton _("Start") action ShowMenu("grade_select")
 
         else:
 

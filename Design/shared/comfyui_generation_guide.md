@@ -166,10 +166,12 @@ around the edges, fantasy children's book, simple background, white background
 
 ## AFTER GENERATING
 
-1. Backgrounds → confirm exactly **1920×1080**, save as `game/images/<name>.png`.
+1. Backgrounds → confirm exactly **1920×1080**, save as `Huafu/game/images/gradeN/bg/<name>.png`.
 2. Sprites → confirm transparent alpha, trim empty margins, feet near bottom edge,
-   save to `game/images/`.
-3. Tell me they're in, and I'll swap the Placeholders in `characters.rpy` for the
+   save to `Huafu/game/images/chars/` (characters used in every grade),
+   `Huafu/game/images/props/` (shared props), or `Huafu/game/images/gradeN/props/`.
+   Keep the untrimmed original + the ComfyUI workflow `.json` in `ArtSource/gradeN/`.
+3. Tell me they're in, and I'll swap the Placeholders in `core/images.rpy` / `gradeN/images.rpy` for the
    real files + wire `mingming smile` and the squirrel token into the game.
 
 ## Tips

@@ -1,22 +1,23 @@
-# audio.rpy — background-music system.
+# core/audio.rpy — background-music and sound-effect helpers, shared by every grade.
 #
-# Put music files in  game/audio/  as .ogg (preferred) or .mp3/.opus.
-# play_bgm() only plays a track if the file actually exists, so the game runs
-# fine BEFORE you've added any audio — drop the files in and they just start
-# working, no code change needed.
+# Put music in  game/audio/bgm/  and sound effects in  game/audio/sfx/  as .ogg
+# (preferred) or .mp3/.opus. Grade-specific audio (e.g. chant narration) goes in
+# game/audio/gradeN/. play_bgm() only plays a track if the file actually exists,
+# so the game runs fine BEFORE you've added any audio — drop the files in and they
+# just start working, no code change needed.
 #
-# Tracks used by Lesson 1 (filenames are what the game looks for):
-#   audio/theme_main.ogg   — title + main menu (gentle, inviting)
-#   audio/bgm_gentle.ogg   — lonely / emotional beats (gate, classroom)
-#   audio/bgm_magic.ogg    — the glowing book / library (curious, sparkly)
-#   audio/bgm_playful.ogg  — mountain world + counting game (upbeat, fun)
+# Music tracks (filenames are what the game looks for):
+#   audio/bgm/theme_main.ogg   — title + main menu (gentle, inviting)
+#   audio/bgm/bgm_gentle.ogg   — lonely / emotional beats (gate, classroom)
+#   audio/bgm/bgm_magic.ogg    — the glowing book / library (curious, sparkly)
+#   audio/bgm/bgm_playful.ogg  — book worlds + mini-games (upbeat, fun)
 #
 # Sound effects (one-shot, via play_sfx):
-#   audio/sfx_tap.ogg      — tapping a squirrel in the counting game
-#   audio/sfx_correct.ogg  — all five squirrels found (success chime)
-#   audio/sfx_page.ogg     — advancing a line in the 念一念 chant reader
-#   audio/sfx_sparkle.ogg  — the magic book appears / glows
-#   audio/sfx_star.ogg     — lesson-complete reward stars
+#   audio/sfx/sfx_tap.ogg      — tapping a token in a counting game
+#   audio/sfx/sfx_correct.ogg  — counting game finished (success chime)
+#   audio/sfx/sfx_page.ogg     — advancing a line in the 念一念 chant reader
+#   audio/sfx/sfx_sparkle.ogg  — the magic book appears / glows
+#   audio/sfx/sfx_star.ogg     — lesson-complete reward stars
 
 init python:
 
@@ -57,7 +58,7 @@ init python:
 
     # Use the main theme on the title screen / main menu, only if present
     # (guarded so a missing file never crashes the menu).
-    _mm = _find_audio("audio/theme_main.ogg")
+    _mm = _find_audio("audio/bgm/theme_main.ogg")
     if _mm:
         config.main_menu_music = _mm
 

@@ -13,7 +13,7 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 
 ## Existing design docs
 
-This project also carries hand-written design documentation under `Grade1/Design/` (story bible, art/audio generation guides, per-lesson art prompts). Read the relevant one before working on story, art, or audio generation. These are *not* a substitute for `CONTEXT.md`: the story bible is narrative canon, `CONTEXT.md` is the glossary and domain model.
+This project also carries hand-written design documentation under `Design/`: `Design/shared/` (art/audio generation guides used by every grade) and `Design/gradeN/` (that grade's story bible and per-lesson art prompts). The source textbook text is in `References/gradeN_text.txt`. Read the relevant one before working on story, art, or audio generation. These are *not* a substitute for `CONTEXT.md`: the story bible is narrative canon, `CONTEXT.md` is the glossary and domain model.
 
 ## File structure
 
@@ -24,10 +24,17 @@ This project also carries hand-written design documentation under `Grade1/Design
 │   ├── adr/
 │   │   └── 0001-<slug>.md
 │   └── agents/
-└── Grade1/
-    ├── Design/
-    ├── game/
-    └── References/
+├── Design/
+│   ├── shared/
+│   └── grade1/
+├── References/          # source textbook text, one file per grade
+├── ArtSource/           # untrimmed art + ComfyUI workflows (not shipped)
+└── Huafu/               # the one Ren'Py project
+    └── game/
+        ├── core/        # shared by every grade
+        ├── minigames/   # shared, configurable mini-games
+        ├── grade1/      # one folder per grade; names prefixed g1_
+        └── tests/
 ```
 
 ## Use the glossary's vocabulary
